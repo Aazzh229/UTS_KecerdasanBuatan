@@ -1,0 +1,61 @@
+% Tanya dengan jawaban y/n
+tanya(Pertanyaan) :-
+    write(Pertanyaan),
+    write(' (y/n)? '),
+    read(Jawaban),
+    nl,
+    (
+        Jawaban = y
+    ->  true
+    ;   fail
+    ).
+
+% Rules deteksi hama berdasarkan gejala
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman menguning?'),
+    tanya('Apakah tanaman tampak layu?'),
+    !, Hama = 'Virus tanaman'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman menguning?'),
+    tanya('Apakah terdapat bercak hitam pada tanaman?'),
+    !, Hama = 'Kutu daun'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman berlubang?'),
+    tanya('Apakah terdapat bercak hitam pada tanaman?'),
+    !, Hama = 'Hama kombinasi (Jamur + Ulat)'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman berlubang?'),
+    tanya('Apakah tanaman tampak layu?'),
+    !, Hama = 'Serangan ulat berat'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah terdapat bercak hitam pada tanaman?'),
+    tanya('Apakah tanaman tampak layu?'),
+    !, Hama = 'Infeksi jamur berat'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah terdapat bercak hitam pada tanaman?'),
+    !, Hama = 'Jamur daun'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman berlubang?'),
+    !, Hama = 'Ulat daun'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah daun tanaman menguning?'),
+    !, Hama = 'Kekurangan nutrisi'.
+
+deteksi_hama(Hama) :-
+    tanya('Apakah tanaman tampak layu?'),
+    !, Hama = 'Infeksi akar atau kekeringan'.
+
+deteksi_hama('Hama tidak diketahui').
+
+% Untuk memulai program
+start :-
+    deteksi_hama(Hama),
+    write('Jenis hama yang terdeteksi: '),
+    write(Hama), nl.

@@ -1,40 +1,4 @@
-1. aturan atau logika
-	Daun menguning dan tanaman layu - Virus tanaman
-	Terdapat bercak hitam - Jamur daun
-	Daun berlubang -	Ulat daun
-	Daun menguning dan terdapat bercak hitam -	Kutu daun
-	Daun berlubang dan bercak hitam -	Hama kombinasi (Jamur + Ulat)
-	Daun menguning saja	- Kekurangan nutrisi (bukan hama)
-	Tanaman layu saja -	Infeksi akar atau kekeringan
-	Daun berlubang dan tanaman layu	- Serangan ulat berat
-	Terdapat bercak hitam dan tanaman layu -	Infeksi jamur berat
-2. Pseudocode
-   Input: gejala tanaman
-Process:
-    if daun menguning dan tanaman layu:
-        hama = Virus tanaman
-    Else if daun menguning dan terdapat bercak hitam:
-        hama = Kutu daun
-    Else if daun berlubang dan bercak hitam:
-        hama = Hama kombinasi (Jamur + Ulat)
-    Else if daun berlubang dan tanaman layu:
-        hama = Serangan ulat berat
-    Else if terdapat bercak hitam dan tanaman layu:
-        hama = Infeksi jamur berat
-    Else if terdapat bercak hitam:
-        hama = Jamur daun
-    Else if daun berlubang:
-        hama = Ulat daun
-    Else if daun menguning:
-        hama = Kekurangan nutrisi
-    Else if tanaman layu:
-        hama = Infeksi akar atau kekeringan
-    Else:
-        hama = Hama tidak diketahui
-Output: jenis hama
-
-3. Implementasi Python
-   def tanya(pertanyaan):
+def tanya(pertanyaan):
     jawaban = input(pertanyaan + " (y/n): ").lower()
     return jawaban == "y"
 
@@ -69,4 +33,3 @@ def deteksi_hama():
 
 hasil = deteksi_hama()
 print("Jenis hama yang terdeteksi:", hasil)
-
